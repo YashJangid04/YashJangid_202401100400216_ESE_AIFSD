@@ -41,7 +41,7 @@ const ComplaintDetails = () => {
 
   const fetchComplaintDetails = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/complaints");
+      const res = await axios.get("https://yashjangid-202401100400216-ese.onrender.com/api/complaints");
       // Find the specific complaint from the list
       const current = res.data.find((c) => c._id === id);
       if (!current) {
@@ -63,7 +63,7 @@ const ComplaintDetails = () => {
     setUpdating(true);
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/complaints/${id}`,
+        `https://yashjangid-202401100400216-ese.onrender.com/api/complaints/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -83,7 +83,7 @@ const ComplaintDetails = () => {
     }
     setDeleting(true);
     try {
-      await axios.delete(`http://localhost:5000/api/complaints/${id}`, {
+      await axios.delete(`https://yashjangid-202401100400216-ese.onrender.com/api/complaints/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert("Complaint removed successfully.");
@@ -106,7 +106,7 @@ const ComplaintDetails = () => {
     setAnalyzing(true);
     try {
       const resAI = await axios.post(
-        "http://localhost:5000/api/ai/analyze",
+        "https://yashjangid-202401100400216-ese.onrender.com/api/ai/analyze",
         {
           title: complaint.title,
           description: complaint.description,
@@ -115,7 +115,7 @@ const ComplaintDetails = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const resSave = await axios.put(
-        `http://localhost:5000/api/complaints/${id}`,
+        `https://yashjangid-202401100400216-ese.onrender.com/api/complaints/${id}`,
         { aiAnalysis: resAI.data },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -30,7 +30,7 @@ const ComplaintForm = () => {
         email: user.email,
       };
 
-      await axios.post("http://localhost:5000/api/complaints", payload, {
+      await axios.post("https://yashjangid-202401100400216-ese.onrender.com/api/complaints", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

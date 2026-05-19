@@ -16,7 +16,7 @@ const UserDashboard = () => {
   const fetchMyComplaints = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/complaints/my", {
+      const res = await axios.get("https://yashjangid-202401100400216-ese.onrender.com/api/complaints/my", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setComplaints(res.data);

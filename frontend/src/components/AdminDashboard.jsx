@@ -28,7 +28,7 @@ const AdminDashboard = () => {
       const token = localStorage.getItem("token");
       // 1. Trigger the AI analysis using the general /api/ai/analyze route
       const aiRes = await axios.post(
-        "http://localhost:5000/api/ai/analyze",
+        "https://yashjangid-202401100400216-ese.onrender.com/api/ai/analyze",
         {
           title: complaint.title,
           description: complaint.description,
@@ -39,7 +39,7 @@ const AdminDashboard = () => {
 
       // 2. Save the generated AI insights into the complaint document
       await axios.put(
-        `http://localhost:5000/api/complaints/${id}`,
+        `https://yashjangid-202401100400216-ese.onrender.com/api/complaints/${id}`,
         { aiAnalysis: aiRes.data },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -60,7 +60,7 @@ const AdminDashboard = () => {
 
   const fetchComplaints = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/complaints");
+      const res = await axios.get("https://yashjangid-202401100400216-ese.onrender.com/api/complaints");
       setComplaints(res.data);
       setLoading(false);
     } catch (err) {
@@ -77,7 +77,7 @@ const AdminDashboard = () => {
     }
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/complaints/search?location=${searchLocation}`,
+        `https://yashjangid-202401100400216-ese.onrender.com/api/complaints/search?location=${searchLocation}`,
       );
       setComplaints(res.data);
     } catch (err) {
@@ -89,7 +89,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/complaints/${id}`,
+        `https://yashjangid-202401100400216-ese.onrender.com/api/complaints/${id}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } },
       );
